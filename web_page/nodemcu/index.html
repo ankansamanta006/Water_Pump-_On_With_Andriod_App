@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+    <title>Corona Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="assets/vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="assets/images/favicon.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 42px;
+  width: 35px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(50px);
+  -ms-transform: translateX(50px);
+  transform: translateX(50px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+
+
+
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:../../partials/_sidebar.html -->
+      
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:../../partials/_navbar.html -->
+       
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title"> Form elements </h3>
+            </div>
+            <div class="row">
+              <div class="col-12 grid-margin">
+                <div class="card">
+                  <div class="card-body align-self-center">
+                    <label class="switch">
+                      <input type="checkbox" id="pump">
+                      <span class="slider"></span>
+                    </label>
+                  </div>
+                  <div class="card-body align-self-center">
+                      <h4 class="card-title" id="switch_status"></h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+           <!-- partial:../../partials/_footer.html -->
+          <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
+              <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin templates</a> from Bootstrapdash.com</span>
+            </div>
+          </footer>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="assets/vendors/select2/select2.min.js"></script> 
+    <script src="assets/vendors/typeahead.js/typeahead.bundle.min.js"></script> 
+    <script src="assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/js/off-canvas.js"></script> 
+    <script src="assets/js/hoverable-collapse.js"></script> 
+    <script src="assets/js/misc.js"></script> 
+    <script src="assets/js/settings.js"></script>
+    <script src="assets/js/todolist.js"></script> 
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="assets/js/file-upload.js"></script> 
+    <script src="assets/js/typeahead.js"></script>
+    <script src="assets/js/select2.js"></script>
+    <!-- End custom js for this page -->
+    <script type="text/javascript">
+
+      $(window).ready(function(){
+
+        $.ajax({
+        type: "GET",
+        url: "https://student1.erisetechnology.com/nodemcu/nodemcu_api.php?id=1",
+        dataType: "JSON",
+        success: function(on_response)
+        {
+          // var myjson=response;
+          console.log(on_response.device_status)
+          if(on_response.device_status==1)
+          {
+            $('#pump').attr("checked", "checked");
+            $('#switch_status').text('Light Is On');
+            //$('#pump').attr( 'checked', true );
+          }
+          else
+          {
+            $('#switch_status').text('Light Is Off');   
+          }
+          
+        }
+        
+    });
+
+      });
+
+
+
+
+  $('#pump').change(function(){
+    if($('#pump').is(':checked'))
+    {
+      //alert("oon");
+      var a="1";
+      var sendInfo = {device_status: a};
+      console.log(sendInfo);
+      //$('#switch_status').text('Pump Is Running');
+    }
+    else
+    {
+      //alert("off");
+      var a="0";
+      var sendInfo = {device_status: a};
+      console.log(sendInfo);
+      //$('#switch_status').text('Pump Is Off');
+
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "https://student1.erisetechnology.com/nodemcu/device_api.php",
+        dataType: "JSON",
+        data:sendInfo,
+        success: function(response)
+        {
+          // var myjson=response;
+          console.log(response.status);
+          $('#switch_status').text(response.status);
+          
+        }
+        
+    });
+
+
+
+
+  })
+
+
+  </script>
+  </body>
+</html>
